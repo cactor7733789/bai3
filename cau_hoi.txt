@@ -1,0 +1,11 @@
+1. Vì sao mật khẩu phải băm trước khi lưu?
+Vì nếu db bị lộ thì hacker không đọc được mật khẩu gốc, chỉ thấy chuỗi hash thôi.
+
+2. Vì sao login không nói rõ là email sai hay mật khẩu sai?
+Để tránh lộ thông tin, hacker không biết email đó có tồn tại trong hệ thống hay không.
+
+3. Vì sao /auth/me phải query lại user từ database, không tin hết JWT?
+Vì JWT có thể còn hạn nhưng user đã bị khóa/xóa, hoặc role đã đổi. Query lại db mới chắc chắn.
+
+4. Token hết hạn thì sao?
+Server trả 401, client phải login lại để lấy token mới.
